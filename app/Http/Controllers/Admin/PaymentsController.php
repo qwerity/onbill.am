@@ -21,7 +21,7 @@ class PaymentsController extends Controller
         abort_if(Gate::denies('payment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Payment::with(['service', 'client'])->select(sprintf('%s.*', (new Payment)->table));
+            $query = Payment::with(['service', 'client', 'team'])->select(sprintf('%s.*', (new Payment)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -101,7 +101,7 @@ class PaymentsController extends Controller
 
         $clients = Client::all()->pluck('cid', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $payment->load('service', 'client');
+        $payment->load('service', 'client', 'team');
 
         return view('admin.payments.edit', compact('services', 'clients', 'payment'));
     }
@@ -117,7 +117,7 @@ class PaymentsController extends Controller
     {
         abort_if(Gate::denies('payment_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $payment->load('service', 'client');
+        $payment->load('service', 'client', 'team');
 
         return view('admin.payments.show', compact('payment'));
     }

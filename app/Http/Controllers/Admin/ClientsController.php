@@ -19,7 +19,7 @@ class ClientsController extends Controller
         abort_if(Gate::denies('client_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Client::query()->select(sprintf('%s.*', (new Client)->table));
+            $query = Client::with(['team'])->select(sprintf('%s.*', (new Client)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -91,6 +91,8 @@ class ClientsController extends Controller
     {
         abort_if(Gate::denies('client_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $client->load('team');
+
         return view('admin.clients.edit', compact('client'));
     }
 
@@ -104,6 +106,8 @@ class ClientsController extends Controller
     public function show(Client $client)
     {
         abort_if(Gate::denies('client_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $client->load('team');
 
         return view('admin.clients.show', compact('client'));
     }

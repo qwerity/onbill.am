@@ -13,6 +13,8 @@ class AddRelationshipFieldsToPaymentsTable extends Migration
             $table->foreign('service_id', 'service_fk_2226976')->references('id')->on('services');
             $table->unsignedInteger('client_id');
             $table->foreign('client_id', 'client_fk_2226978')->references('id')->on('clients');
+            $table->unsignedInteger('team_id')->nullable();
+            $table->foreign('team_id', 'team_fk_2227325')->references('id')->on('teams');
         });
     }
 }
