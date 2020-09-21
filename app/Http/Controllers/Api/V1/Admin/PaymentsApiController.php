@@ -17,7 +17,7 @@ class PaymentsApiController extends Controller
     {
         abort_if(Gate::denies('payment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new PaymentResource(Payment::with(['service', 'client'])->get());
+        return new PaymentResource(Payment::with(['service', 'client', 'team'])->get());
     }
 
     public function store(StorePaymentRequest $request)
@@ -33,7 +33,7 @@ class PaymentsApiController extends Controller
     {
         abort_if(Gate::denies('payment_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new PaymentResource($payment->load(['service', 'client']));
+        return new PaymentResource($payment->load(['service', 'client', 'team']));
     }
 
     public function update(UpdatePaymentRequest $request, Payment $payment)

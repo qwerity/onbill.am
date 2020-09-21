@@ -131,6 +131,8 @@ return [
             'updated_at_helper'  => ' ',
             'deleted_at'         => 'Deleted At',
             'deleted_at_helper'  => ' ',
+            'team'               => 'Team',
+            'team_helper'        => ' ',
         ],
     ],
     'payment'        => [
@@ -155,6 +157,8 @@ return [
             'payment_due_date_helper' => ' ',
             'status'                  => 'Status',
             'status_helper'           => ' ',
+            'team'                    => 'Team',
+            'team_helper'             => ' ',
         ],
     ],
 ];
