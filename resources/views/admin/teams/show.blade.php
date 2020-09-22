@@ -50,6 +50,38 @@
     </div>
 </div>
 
-
+<div class="card">
+    <div class="card-header">
+        {{ trans('global.relatedData') }}
+    </div>
+    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
+        <li class="nav-item">
+            <a class="nav-link" href="#team_services" role="tab" data-toggle="tab">
+                {{ trans('cruds.service.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#team_clients" role="tab" data-toggle="tab">
+                {{ trans('cruds.client.title') }}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#team_payments" role="tab" data-toggle="tab">
+                {{ trans('cruds.payment.title') }}
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" role="tabpanel" id="team_services">
+            @includeIf('admin.teams.relationships.teamServices', ['services' => $team->teamServices])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="team_clients">
+            @includeIf('admin.teams.relationships.teamClients', ['clients' => $team->teamClients])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="team_payments">
+            @includeIf('admin.teams.relationships.teamPayments', ['payments' => $team->teamPayments])
+        </div>
+    </div>
+</div>
 
 @endsection
