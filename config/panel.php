@@ -3,10 +3,10 @@
 return [
     'date_format'         => 'd.m.Y',
     'time_format'         => 'H:i:s',
-    'primary_language'    => 'am',
+    'primary_language'    => 'en',
     'available_languages' => [
-        'am' => 'Armenian',
         'en' => 'English',
         'ru' => 'Russian',
+        'am' => 'Armenian',
     ],
 ];
