@@ -63,6 +63,14 @@
                             {{ App\Payment::STATUS_SELECT[$payment->status] ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.payment.fields.vendor') }}
+                        </th>
+                        <td>
+                            {{ App\Payment::VENDOR_RADIO[$payment->vendor] ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

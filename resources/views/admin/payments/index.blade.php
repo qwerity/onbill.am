@@ -46,6 +46,9 @@
                         {{ trans('cruds.payment.fields.status') }}
                     </th>
                     <th>
+                        {{ trans('cruds.payment.fields.vendor') }}
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
@@ -109,6 +112,7 @@
 { data: 'payment_due_date', name: 'payment_due_date' },
 { data: 'amount', name: 'amount' },
 { data: 'status', name: 'status' },
+{ data: 'vendor', name: 'vendor' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

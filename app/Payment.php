@@ -22,6 +22,12 @@ class Payment extends Model
         'deleted_at',
     ];
 
+    const VENDOR_RADIO = [
+        'EasyPay' => 'EasyPay',
+        'TelCell' => 'TelCell',
+        'IDram'   => 'IDram',
+    ];
+
     const STATUS_SELECT = [
         'Վճարված'        => 'Վճարված',
         'Վճարման ենթակա' => 'Վճարման ենթակա',
@@ -33,6 +39,7 @@ class Payment extends Model
         'payment_due_date',
         'amount',
         'status',
+        'vendor',
         'created_at',
         'updated_at',
         'deleted_at',

@@ -13,6 +13,7 @@ class CreatePaymentsTable extends Migration
             $table->decimal('amount', 15, 2);
             $table->date('payment_due_date');
             $table->string('status')->nullable();
+            $table->string('vendor');
             $table->timestamps();
             $table->softDeletes();
         });
