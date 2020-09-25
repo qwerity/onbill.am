@@ -21,7 +21,6 @@ class UpdateServiceRequest extends FormRequest
                 'required',
             ],
             'tariff' => [
-                'string',
                 'required',
             ],
         ];

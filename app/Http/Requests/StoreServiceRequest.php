@@ -21,7 +21,6 @@ class StoreServiceRequest extends FormRequest
                 'required',
             ],
             'tariff' => [
-                'string',
                 'required',
             ],
         ];

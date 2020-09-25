@@ -66,6 +66,9 @@ class PaymentsController extends Controller
             $table->editColumn('status', function ($row) {
                 return $row->status ? Payment::STATUS_SELECT[$row->status] : '';
             });
+            $table->editColumn('vendor', function ($row) {
+                return $row->vendor ? Payment::VENDOR_RADIO[$row->vendor] : '';
+            });
 
             $table->rawColumns(['actions', 'placeholder', 'service', 'client']);
 

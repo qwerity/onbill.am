@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="tariff">{{ trans('cruds.service.fields.tariff') }}</label>
-                <input class="form-control {{ $errors->has('tariff') ? 'is-invalid' : '' }}" type="text" name="tariff" id="tariff" value="{{ old('tariff', $service->tariff) }}" required>
+                <input class="form-control {{ $errors->has('tariff') ? 'is-invalid' : '' }}" type="number" name="tariff" id="tariff" value="{{ old('tariff', $service->tariff) }}" step="0.01" required>
                 @if($errors->has('tariff'))
                     <div class="invalid-feedback">
                         {{ $errors->first('tariff') }}

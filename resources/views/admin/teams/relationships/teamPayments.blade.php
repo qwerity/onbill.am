@@ -46,6 +46,9 @@
                             {{ trans('cruds.payment.fields.status') }}
                         </th>
                         <th>
+                            {{ trans('cruds.payment.fields.vendor') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -79,6 +82,9 @@
                             </td>
                             <td>
                                 {{ App\Payment::STATUS_SELECT[$payment->status] ?? '' }}
+                            </td>
+                            <td>
+                                {{ App\Payment::VENDOR_RADIO[$payment->vendor] ?? '' }}
                             </td>
                             <td>
                                 @can('payment_show')
